@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+namespace SpaceShooter
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// The base class for all interactive game objects in the scene.
+    /// Базовый класс всех интерактивных игровых объектов на сцене.
+    /// </summary>
+    public abstract class Entity : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        /// <summary>
+        /// Name of the object for the user.
+        /// Название объекта для пользователя.
+        /// </summary>
+        [SerializeField] private string m_Nickname;
+        public string Nickname => m_Nickname;
     }
 }
