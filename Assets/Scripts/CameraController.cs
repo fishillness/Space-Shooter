@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
 
     #region Unity Events
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (m_Target == null || m_Camera == null) return;
 
