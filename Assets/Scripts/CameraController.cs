@@ -3,7 +3,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     #region Properties
-
     /// <summary>
     /// Link to the camera.
     /// —сылка на камеру.
@@ -34,11 +33,9 @@ public class CameraController : MonoBehaviour
     /// —мещение по направлению движени€.
     /// </summary>
     [SerializeReference] private float m_ForwardOffset;
-
     #endregion
 
     #region Unity Events
-
     private void FixedUpdate()
     {
         if (m_Target == null || m_Camera == null) return;
@@ -58,5 +55,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void SetTarget(Transform newTarget)
+    {
+        m_Target = newTarget;
+    }
     #endregion
 }

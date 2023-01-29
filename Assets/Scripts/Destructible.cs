@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SpaceShooter
 {
@@ -9,7 +10,6 @@ namespace SpaceShooter
     public class Destructible : Entity
     {
         #region Properties
-
         /// <summary>
         /// The object ignores damage.
         /// Объект игнорирует повреждения.
@@ -30,10 +30,12 @@ namespace SpaceShooter
         int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
+
+        [SerializeField] private UnityEvent m_EventOnDeath;
+        public UnityEvent EventOnDeath => m_EventOnDeath;        
         #endregion
 
         #region Unity Events
-
         protected virtual void Start()
         {
             m_CurrentHitPoints = m_HitPoints;
@@ -42,7 +44,6 @@ namespace SpaceShooter
         #endregion
 
         #region Public API
-
         /// <summary>
         /// Applying damage to an object.
         /// Применение урона к объекту.
@@ -67,6 +68,11 @@ namespace SpaceShooter
         protected virtual void OnDeath()
         {
             Destroy(gameObject);
+            m_EventOnDeath?.Invoke();
+
+
+            /////////////////////////////////
+             
         }
 
     }

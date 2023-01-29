@@ -76,8 +76,6 @@ namespace SpaceShooter
         {
             UpdateRigidbody();
         }
-
-
         #endregion
 
         /// <summary>

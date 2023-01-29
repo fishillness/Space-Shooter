@@ -4,6 +4,7 @@ namespace SpaceShooter
 {
     public class MovementController : MonoBehaviour
     {
+        #region Properties
         public enum ControlMode
         {
             Keyboard,
@@ -11,9 +12,13 @@ namespace SpaceShooter
         }
 
         [SerializeField] private SpaceShip m_TargetShip;
+        public void SetTargetShip(SpaceShip ship) => m_TargetShip = ship;
+
         [SerializeField] private VirtualJoystick m_MobileJoystick;
         [SerializeField] private ControlMode m_ControlMode;
+        #endregion
 
+        #region Unity Events
         private void Start()
         {
             if(m_ControlMode == ControlMode.Keyboard)
@@ -67,6 +72,7 @@ namespace SpaceShooter
             m_TargetShip.ThrustControl = thrust;
             m_TargetShip.TorqueControl = torgue;
         }
+        #endregion
     }
 }
 
