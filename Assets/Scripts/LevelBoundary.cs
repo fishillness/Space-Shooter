@@ -3,9 +3,9 @@ using UnityEngine;
 namespace SpaceShooter
 {
 
-    public class LevelBoundary : MonoBehaviour
+    public class LevelBoundary : SingletonBase<LevelBoundary>
     {
-        #region Singleton
+        /*
         public static LevelBoundary Instance;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace SpaceShooter
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        #endregion
+        */
 
         #region Properties
         /// <summary>
