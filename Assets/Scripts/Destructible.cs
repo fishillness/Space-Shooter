@@ -30,6 +30,12 @@ namespace SpaceShooter
         int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
+        /// <summary>
+        /// Link to the explosion prefab.
+        /// —сылка на префаб взрыва.
+        /// </summary>
+        [SerializeField] private GameObject m_ExplosionPrefab;
+
 
         [SerializeField] private UnityEvent m_EventOnDeath;
         public UnityEvent EventOnDeath => m_EventOnDeath;        
@@ -67,12 +73,12 @@ namespace SpaceShooter
         /// </summary>
         protected virtual void OnDeath()
         {
+            var explosion = Instantiate(m_ExplosionPrefab);
+            explosion.transform.position = gameObject.transform.position;
+            Destroy(explosion, 0.5f);
+
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
-
-
-            /////////////////////////////////
-             
         }
 
     }
