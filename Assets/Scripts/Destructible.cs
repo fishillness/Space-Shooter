@@ -27,7 +27,7 @@ namespace SpaceShooter
         /// Current hitpoints.
         /// Текущие хитпоинты.
         /// </summary>
-        int m_CurrentHitPoints;
+        private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
         /// <summary>
