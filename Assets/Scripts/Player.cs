@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
-    public class Player : MonoBehaviour
+    public class Player : SingletonBase<Player>
     {
         #region Properties
         /// <summary>
@@ -20,6 +20,7 @@ namespace SpaceShooter
         /// —сылка на префаб корабл€.
         /// </summary>
         [SerializeField] private GameObject m_PlayerShipPrefab;
+        public SpaceShip ActiveShip => m_Ship;
         /// <summary>
         /// Link to the camera controller.
         /// —сылка на контроллер камеры.
