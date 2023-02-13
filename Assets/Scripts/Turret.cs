@@ -53,6 +53,12 @@ namespace SpaceShooter
 
             if (m_RefireTimer > 0) return;
 
+            if (m_Ship.DrawEnergy(m_turretProperties.EnergyUsage) == false)
+                return; ///
+
+            if (m_Ship.DrawAmmo(m_turretProperties.AmmoUsage) == false)
+                return;
+
             Projectile projectile = Instantiate(m_turretProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
