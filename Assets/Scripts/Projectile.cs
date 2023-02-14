@@ -64,7 +64,7 @@ namespace SpaceShooter
         #endregion
 
         #region Public API
-        private Destructible m_Parent;
+        protected Destructible m_Parent;
         public void SetParentShoter(Destructible parent)
         {
             m_Parent = parent;

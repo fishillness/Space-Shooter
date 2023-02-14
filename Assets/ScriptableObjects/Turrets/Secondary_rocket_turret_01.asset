@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Secondary_rocket_turret_01
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 1406458714651320059, guid: ccb6964904f70e543a766a33da2f89c3,
+  m_ProjectilePrefab: {fileID: 1505713196882724427, guid: 76a0797c556941b4d939b14a27ab517b,
     type: 3}
   m_RateOfFire: 0.1
   m_EnergyUsage: 0
