@@ -37,12 +37,20 @@ namespace SpaceShooter
         /// </summary>
         [SerializeField] private float m_MaxAngularVelocity;
 
-
         /// <summary>
         /// Saved reference to rigidbody.
         /// Сохраненная ссылки на rigidbody.
         /// </summary>
         private Rigidbody2D m_Rigid;
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        [SerializeField] private float m_TimeSpeedBoost;
+        private bool isSpeedBoost;
+        private float m_LinearVelocity;
+        private float m_AngularVelocity;
+        private float m_Timer;
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
 
         #region Public API
 
@@ -71,6 +79,12 @@ namespace SpaceShooter
 
             m_Rigid.inertia = 1;
 
+            //////////////////////////////////////////////////////////////////////////////////////////////
+            isSpeedBoost = false;
+            m_LinearVelocity = m_MaxLinearVelocity;
+            m_AngularVelocity = m_MaxAngularVelocity;
+            /////////////////////////////////////////////////////////////////////////////////////////////
+
             InitOffensive();
         }
 
@@ -78,6 +92,21 @@ namespace SpaceShooter
         {
             UpdateRigidbody();
             UpdateEnergyRegen();
+
+
+            /////////////////////////////////////////////////////////////////////////////////////////////
+            if (m_Timer < m_TimeSpeedBoost && isSpeedBoost == true)
+            {
+                m_Timer += Time.deltaTime;
+            }
+            else
+            {
+                isSpeedBoost = false;
+                m_LinearVelocity = m_MaxLinearVelocity;
+                m_AngularVelocity = m_MaxAngularVelocity;
+                m_Timer = 0;
+            }
+            /////////////////////////////////////////////////////////////////////////////////////////////
         }
         #endregion
 
@@ -89,11 +118,15 @@ namespace SpaceShooter
         {
             m_Rigid.AddForce(ThrustControl * m_Thrust * transform.up * Time.fixedDeltaTime, ForceMode2D.Force);
 
-            m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_MaxLinearVelocity ) * Time.fixedDeltaTime, ForceMode2D.Force);
+            //m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_MaxLinearVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_LinearVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
 
             m_Rigid.AddTorque(TorqueControl * m_Mobility * Time.fixedDeltaTime, ForceMode2D.Force);
 
-            m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+            //m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_AngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
         }
 
 
@@ -196,6 +229,16 @@ namespace SpaceShooter
         }
 
         #endregion
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        public void IncreaseSpeed(float value)
+        {
+            m_AngularVelocity += value;
+            m_LinearVelocity += value;
+            isSpeedBoost = true;
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////
     }
 
 }
