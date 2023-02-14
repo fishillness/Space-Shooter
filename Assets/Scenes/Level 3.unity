@@ -1260,9 +1260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DebrisPrefabs:
-  - {fileID: 690122743579643323, guid: be009c2358e70ff4797cc15462536dc2, type: 3}
+  - {fileID: 1669905150, guid: be009c2358e70ff4797cc15462536dc2, type: 3}
   m_Area: {fileID: 1451930076}
-  m_NumDebris: 0
+  m_NumDebris: 3
   m_RandomSpeed: 1
 --- !u!114 &1451930076
 MonoBehaviour:

@@ -67,6 +67,12 @@ namespace SpaceShooter
 
         #endregion
 
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        protected Vector3 deathPosition;
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+
         /// <summary>
         /// Redefinable object destruction event when hitpoints are below or equal to zero.
         /// Переопределяемое событие уничтожения объекта, когда хитпоинты ниже или равны нулю.
@@ -76,6 +82,10 @@ namespace SpaceShooter
             var explosion = Instantiate(m_ExplosionPrefab);
             explosion.transform.position = gameObject.transform.position;
             Destroy(explosion, 0.5f);
+
+            /////////////////////////////////////////////////////////////////////////////////////
+            deathPosition = gameObject.transform.position;
+            /////////////////////////////////////////////////////////////////////////////////////
 
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
