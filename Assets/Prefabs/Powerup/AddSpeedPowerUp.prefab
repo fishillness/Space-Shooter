@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EffectType: 2
   m_Value: 100
+  m_Time: 50

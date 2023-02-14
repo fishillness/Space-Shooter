@@ -14,7 +14,7 @@ namespace SpaceShooter
         /// The object ignores damage.
         /// Объект игнорирует повреждения.
         /// </summary>
-        [SerializeField] private bool m_Indestructible;
+        [SerializeField] protected bool m_Indestructible;
         public bool IsIndestructible => m_Indestructible;
 
         /// <summary>

@@ -671,7 +671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &617006857 stripped
 Transform:
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_DebrisPrefabs:
   - {fileID: 1669905150, guid: be009c2358e70ff4797cc15462536dc2, type: 3}
   m_Area: {fileID: 1451930076}
-  m_NumDebris: 3
+  m_NumDebris: 0
   m_RandomSpeed: 1
 --- !u!114 &1451930076
 MonoBehaviour:
@@ -1339,7 +1339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1474780500
 MonoBehaviour:
@@ -2373,7 +2373,7 @@ PrefabInstance:
     - target: {fileID: 6658827838306769530, guid: 534c3fe64282a8143853507724e5cacf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6658827838306769530, guid: 534c3fe64282a8143853507724e5cacf,
         type: 3}

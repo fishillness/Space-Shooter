@@ -44,11 +44,16 @@ namespace SpaceShooter
         private Rigidbody2D m_Rigid;
 
         //////////////////////////////////////////////////////////////////////////////////////////////
-        [SerializeField] private float m_TimeSpeedBoost;
+        private float m_TimeSpeedBoost;
         private bool isSpeedBoost;
         private float m_LinearVelocity;
         private float m_AngularVelocity;
-        private float m_Timer;
+        private float m_TimerSpeed;
+
+
+        private float m_TimeIndestructibleBoost;
+        private float m_TimerIndestructible;
+        private bool isIndestructibleBoost;
         //////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -78,6 +83,8 @@ namespace SpaceShooter
             m_Rigid.mass = m_Mass;
 
             m_Rigid.inertia = 1;
+            
+            
 
             //////////////////////////////////////////////////////////////////////////////////////////////
             isSpeedBoost = false;
@@ -95,17 +102,39 @@ namespace SpaceShooter
 
 
             /////////////////////////////////////////////////////////////////////////////////////////////
-            if (m_Timer < m_TimeSpeedBoost && isSpeedBoost == true)
+            ///
+
+            if (isSpeedBoost == true)
             {
-                m_Timer += Time.deltaTime;
+                if (m_TimerSpeed < m_TimeSpeedBoost)
+                {
+                    m_TimerSpeed += Time.deltaTime;
+                }
+                else
+                {
+                    isSpeedBoost = false;
+                    m_LinearVelocity = m_MaxLinearVelocity;
+                    m_AngularVelocity = m_MaxAngularVelocity;
+                    m_TimerSpeed = 0;
+                }
             }
-            else
+
+            
+
+            if(isIndestructibleBoost == true)
             {
-                isSpeedBoost = false;
-                m_LinearVelocity = m_MaxLinearVelocity;
-                m_AngularVelocity = m_MaxAngularVelocity;
-                m_Timer = 0;
+                if (m_TimerIndestructible < m_TimeIndestructibleBoost)
+                {
+                    m_TimerIndestructible += Time.deltaTime;
+                }
+                else
+                {
+                    isIndestructibleBoost = false;
+                    m_Indestructible = false;
+                    m_TimerIndestructible = 0;
+                }
             }
+
             /////////////////////////////////////////////////////////////////////////////////////////////
         }
         #endregion
@@ -232,11 +261,19 @@ namespace SpaceShooter
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////
-        public void IncreaseSpeed(float value)
+        public void IncreaseSpeed(float value, float time)
         {
+            m_TimeSpeedBoost = time;
             m_AngularVelocity += value;
             m_LinearVelocity += value;
             isSpeedBoost = true;
+        }
+
+        public void BecameIndestructible(float time)
+        {
+            m_TimeIndestructibleBoost = time;
+            m_Indestructible = true;
+            isIndestructibleBoost = true;
         }
         /////////////////////////////////////////////////////////////////////////////////////////////
     }
