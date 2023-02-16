@@ -2157,16 +2157,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 297833229, guid: cf8a1f452cdecad4e9488fc1333bcc8a, type: 3}
-      propertyPath: m_turretProperties
-      value: 
-      objectReference: {fileID: 11400000, guid: 2284fb3273fc7764f86849efc55171e1,
-        type: 2}
-    - target: {fileID: 1058516776, guid: cf8a1f452cdecad4e9488fc1333bcc8a, type: 3}
-      propertyPath: m_turretProperties
-      value: 
-      objectReference: {fileID: 11400000, guid: 2284fb3273fc7764f86849efc55171e1,
-        type: 2}
     - target: {fileID: 2780487892504269954, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
         type: 3}
       propertyPath: m_RootOrder
