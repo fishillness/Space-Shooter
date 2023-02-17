@@ -470,6 +470,9 @@ MonoBehaviour:
   m_FindNewTargetTime: 3
   m_ShootDelay: 1
   m_EvadeRayLenght: 5
+  m_pointTarget: []
+  m_radiusPointProximity: 0
+  leadDistance: 0
 --- !u!50 &4414054605583309418
 Rigidbody2D:
   serializedVersion: 4

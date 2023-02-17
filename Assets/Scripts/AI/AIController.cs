@@ -73,6 +73,7 @@ namespace SpaceShooter
         ////////////////////////////////////////////////////////////////////////////////////////
         [SerializeField] private GameObject[] m_pointTarget;
         [SerializeField] private float m_radiusPointProximity;
+        [SerializeField] private int leadDistance;
         private int numberPointTarget;
         ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -137,11 +138,7 @@ namespace SpaceShooter
             {
                 if(m_SelectedTarget != null)
                 {
-                    //m_MovePosition = m_SelectedTarget.transform.position;
-
-                    ////////////////////////////////////////////////////////
                     m_MovePosition = MakeLead(m_SelectedTarget);
-                    ////////////////////////////////////////////////////////
                 }
                 else
                 {
@@ -161,8 +158,6 @@ namespace SpaceShooter
                         }
                         else
                         {
-                            //m_MovePosition = m_PatrolPoint.transform.position;
-
                             m_MovePosition = MakeLead(m_SelectedTarget);
                         }
                     }
@@ -192,7 +187,7 @@ namespace SpaceShooter
         private Vector3 MakeLead(Destructible target)
         {
             
-            Vector3 pos = new Vector3(target.transform.up.x * 5 + target.transform.position.x, target.transform.up.y * 5 + target.transform.position.y, target.transform.up.z * 5 + target.transform.position.z);
+            Vector3 pos = new Vector3(target.transform.up.x * leadDistance + target.transform.position.x, target.transform.up.y * leadDistance + target.transform.position.y, target.transform.up.z * leadDistance + target.transform.position.z);
             
             return pos;
         }
