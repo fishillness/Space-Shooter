@@ -362,6 +362,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e119e6204cfdbd24786a582e6e282e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AIBehaviour: 1
+  m_PatrolPoint: {fileID: 0}
+  m_NavigationLinear: 0.3
+  m_NavigationAngular: 0.3
+  m_RandomSelectMovePointTime: 5
+  m_FindNewTargetTime: 3
+  m_ShootDelay: 1
+  m_EvadeRayLenght: 5
 --- !u!50 &3682346441377671123
 Rigidbody2D:
   serializedVersion: 4
@@ -403,6 +411,7 @@ MonoBehaviour:
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  m_TeamId: 2
   m_Mass: 1
   m_Thrust: 1000
   m_Mobility: 2000

@@ -62,7 +62,10 @@ namespace SpaceShooter
         private SpaceShip m_SpaceShip;
         private Vector3 m_MovePosition;
         private Destructible m_SelectedTarget;
+
         private Timer m_RandomizeDirectionTimer;
+        private Timer m_FireTimer;
+        private Timer m_FindNewTargetTimer;
         #endregion
 
         #region Unity Events
@@ -160,12 +163,47 @@ namespace SpaceShooter
 
         private void ActionFindNewAttackTarget()
         {
-
+            if (m_FindNewTargetTimer.IsFinished == true)
+            {
+                m_SelectedTarget = FindNearestDestructableTarget();
+                m_FindNewTargetTimer.Start(m_ShootDelay);
+            }
         }
 
         private void ActionFire()
         {
+            if (m_SelectedTarget != null)
+            {
+                if (m_FireTimer.IsFinished == true)
+                {
+                    m_SpaceShip.Fire(TurretMode.Primary);
+                    m_FireTimer.Start(m_ShootDelay);
+                }
+            }
+        }
 
+        private Destructible FindNearestDestructableTarget()
+        {
+            float minDist = float.MaxValue;
+            Destructible potentialTarget = null;
+
+            foreach (var v in Destructible.AllDestructibles)
+            {
+                if (v.GetComponent<SpaceShip>() == m_SpaceShip) continue;
+
+                if (v.TeamId == Destructible.TeamIdNeutral) continue;
+
+                if (v.TeamId == m_SpaceShip.TeamId) continue;
+
+                float dist = Vector2.Distance(m_SpaceShip.transform.position, v.transform.position); ;
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    potentialTarget = v;
+                }
+            }
+
+            return potentialTarget;
         }
 
 
@@ -182,34 +220,17 @@ namespace SpaceShooter
         private void InitTimers()
         {
             m_RandomizeDirectionTimer = new Timer(m_RandomSelectMovePointTime);
-        }
+            m_FireTimer = new Timer(m_ShootDelay);
+            m_FindNewTargetTimer = new Timer(m_FindNewTargetTime);
+    }
 
         private void UpdateTimers()
         {
             m_RandomizeDirectionTimer.RemoveTime(Time.deltaTime);
+            m_FireTimer.RemoveTime(Time.deltaTime);
+            m_FindNewTargetTimer.RemoveTime(Time.deltaTime);
         }
 
         #endregion
-
-
-        /*
-        private Timer TestTimer;
-
-        private void Start()
-        {
-            TestTimer = new Timer(3);   
-        }
-
-        private void Update()
-        {
-            TestTimer.RemoveTime(Time.deltaTime);
-
-            if(TestTimer.IsFinished == true)
-            {
-                Debug.Log("Test");
-                TestTimer.Start(3);
-            }
-        }
-         */
     }
 }

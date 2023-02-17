@@ -458,24 +458,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2184841062359850623, guid: 903fb12c59c7a954d932a9fa770511c6,
         type: 3}
-      propertyPath: m_AIBehaviour
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2184841062359850623, guid: 903fb12c59c7a954d932a9fa770511c6,
-        type: 3}
       propertyPath: m_PatrolPoint
       value: 
       objectReference: {fileID: 579642372}
-    - target: {fileID: 2184841062359850623, guid: 903fb12c59c7a954d932a9fa770511c6,
-        type: 3}
-      propertyPath: m_EvadeRayLenght
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2184841062359850623, guid: 903fb12c59c7a954d932a9fa770511c6,
-        type: 3}
-      propertyPath: m_RandomSelectMovePointTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3682346441377671120, guid: 903fb12c59c7a954d932a9fa770511c6,
         type: 3}
       propertyPath: m_Name
@@ -489,12 +474,12 @@ PrefabInstance:
     - target: {fileID: 3682346441377671121, guid: 903fb12c59c7a954d932a9fa770511c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.43
+      value: -3.83
       objectReference: {fileID: 0}
     - target: {fileID: 3682346441377671121, guid: 903fb12c59c7a954d932a9fa770511c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.48
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 3682346441377671121, guid: 903fb12c59c7a954d932a9fa770511c6,
         type: 3}
@@ -2298,12 +2283,12 @@ PrefabInstance:
     - target: {fileID: 2780487892504269954, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2780487892504269954, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2780487892504269954, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
         type: 3}
