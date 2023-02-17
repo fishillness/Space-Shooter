@@ -14,7 +14,8 @@ namespace SpaceShooter
         public enum AIBehaviour
         {
             Null,
-            Patrol
+            Patrol,
+            Route               ///////////////////////////////
         }
         /// <summary>
         /// Store the behavior type.
@@ -66,6 +67,15 @@ namespace SpaceShooter
         private Timer m_RandomizeDirectionTimer;
         private Timer m_FireTimer;
         private Timer m_FindNewTargetTimer;
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+        [SerializeField] private GameObject[] m_pointTarget;
+        [SerializeField] private float m_radiusPointProximity;
+        private int numberPointTarget;
+        ////////////////////////////////////////////////////////////////////////////////////////
+
         #endregion
 
         #region Unity Events
@@ -79,7 +89,6 @@ namespace SpaceShooter
         private void Update()
         {
             UpdateTimers();
-
             UpdateAI();
         }
 
@@ -92,8 +101,25 @@ namespace SpaceShooter
             {
                 UpdateBehaviourPatrol();
             }
-        }
 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (m_AIBehaviour == AIBehaviour.Route)
+            {
+                UpdateBehaviourRoute();
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void UpdateBehaviourRoute()
+        {
+            ActionFindNewMovePosition();
+            ActionControlShip();
+            ActionFindNewAttackTarget();
+            ActionFire();
+            ActionEvadeCollision();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         private void UpdateBehaviourPatrol()
         {
             ActionFindNewMovePosition();
@@ -111,7 +137,11 @@ namespace SpaceShooter
             {
                 if(m_SelectedTarget != null)
                 {
-                    m_MovePosition = m_SelectedTarget.transform.position;
+                    //m_MovePosition = m_SelectedTarget.transform.position;
+
+                    ////////////////////////////////////////////////////////
+                    m_MovePosition = MakeLead(m_SelectedTarget);
+                    ////////////////////////////////////////////////////////
                 }
                 else
                 {
@@ -131,13 +161,42 @@ namespace SpaceShooter
                         }
                         else
                         {
-                            m_MovePosition = m_PatrolPoint.transform.position;
+                            //m_MovePosition = m_PatrolPoint.transform.position;
+
+                            m_MovePosition = MakeLead(m_SelectedTarget);
                         }
                     }
                 }
             }
+            
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (m_AIBehaviour == AIBehaviour.Route)
+            {
+                m_MovePosition = m_pointTarget[numberPointTarget].transform.position;
+
+                bool isNearPointTarget = (m_MovePosition - transform.position).sqrMagnitude < m_radiusPointProximity * m_radiusPointProximity;
+
+                if (isNearPointTarget == true)
+                {
+                    numberPointTarget++;
+                    if (numberPointTarget > m_pointTarget.Length - 1)
+                        numberPointTarget = 0;
+                }
+                    
+
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private Vector3 MakeLead(Destructible target)
+        {
+            
+            Vector3 pos = new Vector3(target.transform.up.x * 5 + target.transform.position.x, target.transform.up.y * 5 + target.transform.position.y, target.transform.up.z * 5 + target.transform.position.z);
+            
+            return pos;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void ActionEvadeCollision()
         {
             if (Physics2D.Raycast(transform.position, transform.up, m_EvadeRayLenght) == true)
