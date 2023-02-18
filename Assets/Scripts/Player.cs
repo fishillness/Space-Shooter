@@ -34,27 +34,43 @@ namespace SpaceShooter
         #endregion
 
         #region Unity Events
+
+        protected override void Awake()
+        {
+            base.Awake();
+            if (m_Ship != null)
+                Destroy(m_Ship.gameObject);
+        }
+
         private void Start()
         {
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
+            Respawn();
         }
 
         private void OnShipDeath()
         {
             m_NumLives--;
 
-            if(m_NumLives > 0)
+            if (m_NumLives > 0)
                 Respawn();
+            else
+                LevelSequenceController.Instance.FinishCurrentLevel(false);
         }
 
         private void Respawn()
         {
-            var newPlayerShip = Instantiate(m_PlayerShipPrefab);
-            m_Ship = newPlayerShip.GetComponent<SpaceShip>();
-            m_Ship.EventOnDeath.AddListener(OnShipDeath);                    ////
+            if (LevelSequenceController.PlayerShip != null)
+            {
+                var newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
+                m_Ship = newPlayerShip.GetComponent<SpaceShip>();
+                m_Ship.EventOnDeath.AddListener(OnShipDeath);                    ////
 
-            m_CameraController.SetTarget(m_Ship.transform);
-            m_MovementController.SetTargetShip(m_Ship);
+                m_CameraController.SetTarget(m_Ship.transform);
+                m_MovementController.SetTargetShip(m_Ship);
+            }
+
+            
         }
         #endregion
 
