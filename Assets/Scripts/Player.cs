@@ -57,6 +57,20 @@ namespace SpaceShooter
             m_MovementController.SetTargetShip(m_Ship);
         }
         #endregion
+
+        #region Score
+        public int Score { get; private set; }
+        public int NumKills { get; private set; }
+        public void AddKill()
+        {
+            NumKills++;
+        }
+        public void AddScore(int num)
+        {
+            Score += num;
+        }
+        
+        #endregion
     }
 }
 
