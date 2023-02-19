@@ -7,13 +7,8 @@ namespace SpaceShooter
     {
         bool isCompleted { get; }
     }
-    public class LevelController : MonoBehaviour
-    {      
-
-        /// <summary>
-        /// 
-        /// Время прохождения в секундах.
-        /// </summary>
+    public class LevelController : SingletonBase<LevelController>
+    {   
         [SerializeField] private int m_ReferenceTime;
         public int ReferenceTime => m_ReferenceTime;
 
