@@ -382,7 +382,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4bebb0c6f1277f7469db731a4a844537, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 1947483501713917919}
   - component: {fileID: 1789419516}
   m_Layer: 0
-  m_Name: Ship_01
+  m_Name: Ship_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Mass: 1
   m_Thrust: 1000
   m_Mobility: 2000
-  m_MaxLinearVelocity: 15
+  m_MaxLinearVelocity: 25
   m_MaxAngularVelocity: 360
   m_PreviewImage: {fileID: 21300000, guid: 4bebb0c6f1277f7469db731a4a844537, type: 3}
   m_Turrets:

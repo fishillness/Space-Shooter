@@ -750,7 +750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &314527328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ RectTransform:
   - {fileID: 1677023226}
   - {fileID: 1120926467}
   m_Father: {fileID: 2034935517}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -825,9 +825,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
-  m_DefaultSpaceShip: {fileID: 0}
+  m_DefaultSpaceShip: {fileID: 2780487892504269953, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
+    type: 3}
   m_EpisodeSelection: {fileID: 984955827}
-  m_ShipSelection: {fileID: 0}
+  m_ShipSelection: {fileID: 936534535}
 --- !u!1 &314870259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,12 +1206,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 407766124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f495161f9463b41b8e8d085bdd8e37, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5f0f825adf85046845e1928f7e6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Episode: {fileID: 11400000, guid: 32a3ae842292c1946bb7e1b41fe52b24, type: 2}
-  m_EpisodeNickname: {fileID: 1922624166}
-  m_PreviewImage: {fileID: 611153883}
+  m_Prefab: {fileID: 2780487892504269953, guid: cf8a1f452cdecad4e9488fc1333bcc8a,
+    type: 3}
+  m_Shipname: {fileID: 1922624166}
+  m_Hitpoints: {fileID: 293962511}
+  m_Speed: {fileID: 1035487673}
+  m_Agility: {fileID: 1632337186}
+  m_Preview: {fileID: 611153883}
 --- !u!114 &407766127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,8 +1903,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1598993788}
-        m_TargetAssemblyTypeName: SpaceShooter.EpisodeSelectController, Assembly-CSharp
-        m_MethodName: OnStartEpisodeButtonClicked
+        m_TargetAssemblyTypeName: SpaceShooter.PlayerShipSelectionController, Assembly-CSharp
+        m_MethodName: OnButtonSelectShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2577,7 +2582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &936534536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2593,7 +2598,7 @@ RectTransform:
   - {fileID: 1598993787}
   - {fileID: 1371906433}
   m_Father: {fileID: 2034935517}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2746,7 +2751,7 @@ RectTransform:
   - {fileID: 1120366806}
   - {fileID: 828958302}
   m_Father: {fileID: 2034935517}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3605,8 +3610,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 407766126}
-        m_TargetAssemblyTypeName: SpaceShooter.EpisodeSelectController, Assembly-CSharp
-        m_MethodName: OnStartEpisodeButtonClicked
+        m_TargetAssemblyTypeName: SpaceShooter.PlayerShipSelectionController, Assembly-CSharp
+        m_MethodName: OnButtonSelectShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3863,12 +3868,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1371906432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f495161f9463b41b8e8d085bdd8e37, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5f0f825adf85046845e1928f7e6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Episode: {fileID: 11400000, guid: 32a3ae842292c1946bb7e1b41fe52b24, type: 2}
-  m_EpisodeNickname: {fileID: 1897711545}
-  m_PreviewImage: {fileID: 2134927719}
+  m_Prefab: {fileID: 0}
+  m_Shipname: {fileID: 0}
+  m_Hitpoints: {fileID: 0}
+  m_Speed: {fileID: 0}
+  m_Agility: {fileID: 0}
+  m_Preview: {fileID: 0}
 --- !u!114 &1371906435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4446,12 +4454,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1598993786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f495161f9463b41b8e8d085bdd8e37, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5f0f825adf85046845e1928f7e6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Episode: {fileID: 11400000, guid: 32a3ae842292c1946bb7e1b41fe52b24, type: 2}
-  m_EpisodeNickname: {fileID: 1734437204}
-  m_PreviewImage: {fileID: 807174365}
+  m_Prefab: {fileID: 2780487892504269953, guid: fb39678627676014eadf10f8ab08d55b,
+    type: 3}
+  m_Shipname: {fileID: 1734437204}
+  m_Hitpoints: {fileID: 776419995}
+  m_Speed: {fileID: 161728099}
+  m_Agility: {fileID: 217254443}
+  m_Preview: {fileID: 807174365}
 --- !u!114 &1598993789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4787,7 +4799,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 314527331}
         m_TargetAssemblyTypeName: SpaceShooter.MainMenuController, Assembly-CSharp
-        m_MethodName: OnButtonStartNew
+        m_MethodName: OnButtonSelectShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6077,9 +6089,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 936534536}
   - {fileID: 984955828}
   - {fileID: 314527328}
-  - {fileID: 936534536}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6171,7 +6183,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1371906434}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpaceShooter.EpisodeSelectController, Assembly-CSharp
         m_MethodName: OnStartEpisodeButtonClicked
         m_Mode: 1
