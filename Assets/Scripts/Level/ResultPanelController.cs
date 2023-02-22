@@ -29,6 +29,13 @@ namespace SpaceShooter
             m_Time.text = "Time: " + levelResult.time.ToString();
 
             /////////////////////////////////////
+            if (success)
+            {
+                GameStatistics.Instance.AddLevelKills(levelResult.numKills);
+                GameStatistics.Instance.AddLevelScore(levelResult.score);
+                GameStatistics.Instance.AddLevelTime(levelResult.time);
+            }
+            ////////////////////////////////////
             if (!success)
                 levelResult.Reset();
             /////////////////////////////////////
