@@ -34,6 +34,10 @@ namespace SpaceShooter
         #endregion
 
         #region Unity Events
+        private void Start()
+        {
+            Player.Instance.ActiveShip.EventOnDeath.AddListener(OnShipDeath);
+        }
         private void Update()
         {
             float stepLength = Time.deltaTime * m_Velocity;
@@ -60,6 +64,11 @@ namespace SpaceShooter
                 Destroy(gameObject);
 
             transform.position += new Vector3(step.x, step.y, 0);
+        }
+
+        private void OnShipDeath()
+        {
+            Destroy(gameObject);
         }
 
         private void OnProjectileLifeEnd(Collider2D col, Vector2 pos)
