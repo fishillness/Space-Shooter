@@ -10,6 +10,7 @@ namespace SpaceShooter
         /// Количество жизней.
         /// </summary>
         [SerializeField] private int m_NumLives;
+        public int NumLives => m_NumLives;
         /// <summary>
         /// Link to the ship.
         /// Ссылка на корабль.
