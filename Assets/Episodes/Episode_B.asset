@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9ab7ad6832c2c43a07df657fbaab3a, type: 3}
   m_Name: Episode_B
   m_EditorClassIdentifier: 
-  m_EpisodeName: Episode B
+  m_EpisodeName: Labyrinth
   m_Levels:
   - Ep 2 lvl 1
+  - Ep 2 lvl 2
+  - Ep 2 lvl 3
   m_PreviewImage: {fileID: 0}
