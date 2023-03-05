@@ -15,12 +15,12 @@ namespace SpaceShooter
         /// —сылка на корабль.
         /// </summary>
         [SerializeField] private SpaceShip m_Ship;
+        public SpaceShip ActiveShip => m_Ship;
         /// <summary>
         /// Link to ship prefab.
         /// —сылка на префаб корабл€.
         /// </summary>
         [SerializeField] private GameObject m_PlayerShipPrefab;
-        public SpaceShip ActiveShip => m_Ship;
         /// <summary>
         /// Link to the camera controller.
         /// —сылка на контроллер камеры.
@@ -70,7 +70,7 @@ namespace SpaceShooter
                 m_MovementController.SetTargetShip(m_Ship);
             }
 
-            
+
         }
         #endregion
 
@@ -85,7 +85,14 @@ namespace SpaceShooter
         {
             Score += num;
         }
-        
+
+        #endregion
+
+        #region public API
+        public Vector3 GetActiveShipPosition()
+        {
+            return m_Ship.transform.position;
+        }
         #endregion
     }
 }
