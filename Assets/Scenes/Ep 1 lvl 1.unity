@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: 3682346441377671122, guid: 903fb12c59c7a954d932a9fa770511c6, type: 3}
   m_Area: {fileID: 679108574}
   m_SpawnMode: 0
-  m_NumSpawns: 20
+  m_NumSpawns: 5
   m_RespawnTime: 5
 --- !u!114 &679108574
 MonoBehaviour:
