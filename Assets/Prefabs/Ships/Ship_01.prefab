@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aebafc70ba032f4eb162568450d8028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Nickname: Player
+  m_Nickname: Red giant
   m_Indestructible: 0
   m_HitPoints: 100
   m_ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
