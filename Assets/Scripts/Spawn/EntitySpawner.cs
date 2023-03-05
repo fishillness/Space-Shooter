@@ -46,11 +46,7 @@ namespace SpaceShooter
         #region Unity Events
         private void Start()
         {
-            if (m_SpawnMode == SpawnMode.Start)
-            {
-                SpawnEntities();
-            }
-
+            SpawnEntities(); 
             m_Timer = m_RespawnTime;
         }
 
