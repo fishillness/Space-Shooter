@@ -8,7 +8,8 @@ namespace SpaceShooter
         {
             AddAmmo,
             AddEnergy,
-            AddScore
+            AddScore,
+            AddNumLives
         }
 
         [SerializeField] private EffectType m_EffectType;
@@ -24,6 +25,9 @@ namespace SpaceShooter
 
             if (m_EffectType == EffectType.AddScore)
                 Player.Instance.AddScore( (int) m_Value);
+
+            if (m_EffectType == EffectType.AddNumLives)
+                Player.Instance.AddNumLives( (int) m_Value);
         }
     }
 

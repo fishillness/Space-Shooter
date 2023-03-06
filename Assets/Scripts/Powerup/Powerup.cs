@@ -3,13 +3,13 @@ using UnityEngine;
 namespace SpaceShooter
 {
     [RequireComponent(typeof(CircleCollider2D))]
-    public abstract class Powerup : MonoBehaviour
+    public abstract class Powerup : Entity
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
             SpaceShip ship = collision.transform.root.GetComponent<SpaceShip>();
 
-            if (ship != null && Player.Instance.ActiveShip)
+            if (ship != null && Player.Instance.ActiveShip == ship)
             {
                 OnPickedUp(ship);
                 Destroy(gameObject);

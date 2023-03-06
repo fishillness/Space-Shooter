@@ -94,6 +94,10 @@ namespace SpaceShooter
         {
             return m_Ship.transform.position;
         }
+        public void AddNumLives(int num)
+        {
+            m_NumLives += num;
+        }
         #endregion
     }
 }
