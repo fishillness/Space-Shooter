@@ -54,7 +54,8 @@ namespace SpaceShooter
                     if (m_Parent == Player.Instance.ActiveShip)
                     {
                         Player.Instance.AddScore(dest.ScoreValue);
-                        if (dest.HitPoints <= 0 && dest.GetComponent<SpaceShip>() != null)
+                        if (dest.HitPoints <= 0 && dest.GetComponent<SpaceShip>() != null &&
+                            dest.TeamId != Player.Instance.ActiveShip.TeamId) //
                         {
                             Player.Instance.AddKill();
                         }

@@ -9,20 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Main menu.unity
     guid: 24096dec3a82c004c9cb68302f349ec6
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 85a97a688a6367146a9a4f299646073c
-  - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: a655093320576104185745451e40a88b
-  - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: 9ac36e1afaf7fee489ffd9c749f87150
-  - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: 08ff75b03495e854986e07aa8a4bef45
-  - enabled: 1
     path: Assets/Scenes/Ep 1 lvl 1.unity
     guid: 3a6dc19686fa2d3489d16012e0a5a675
+  - enabled: 1
+    path: Assets/Scenes/Ep 1 lvl 2.unity
+    guid: 0f34804d70dcefa43a740ab69e4d7dc1
+  - enabled: 1
+    path: Assets/Scenes/Ep 1 lvl 3.unity
+    guid: f211a693e1eb0d143ac390ce258a0fc1
   - enabled: 1
     path: Assets/Scenes/Ep 2 lvl 1.unity
     guid: 3729abfb7c7b67643b3a1c3c57fb5436
@@ -32,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ep 2 lvl 3.unity
     guid: 85a874846d337a3478260d58f29a437f
+  - enabled: 1
+    path: Assets/Scenes/Ep 3 lvl 1.unity
+    guid: 2aacd974ad390e54094b9280dedc892f
+  - enabled: 1
+    path: Assets/Scenes/Ep 3 lvl 2.unity
+    guid: 3da8935f59671624ea48253ee9cbfbc4
+  - enabled: 1
+    path: Assets/Scenes/Ep 3 lvl 3.unity
+    guid: 7c6b72f2db0ad6941a5fcf80755a529f
   m_configObjects: {}

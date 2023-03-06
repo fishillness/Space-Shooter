@@ -15,4 +15,6 @@ MonoBehaviour:
   m_EpisodeName: Battle
   m_Levels:
   - Ep 1 lvl 1
+  - Ep 1 lvl 2
+  - Ep 1 lvl 3
   m_PreviewImage: {fileID: 21300000, guid: 9ff65ca0a599af948ac94e53c9aaba6e, type: 3}
